@@ -1,15 +1,17 @@
 import 'dart:io';
 import 'dart:developer' as devtools;
-import 'package:fishclassificationapp/screens/displayscreen.dart';
+import 'dart:typed_data';
 import 'package:fishclassificationapp/screens/loaderscreen.dart';
 import 'package:fishclassificationapp/utils/appcolor.dart';
 import 'package:fishclassificationapp/widgets/appiconbutton.dart';
-import 'package:flutter/widgets.dart';
-import 'package:image/image.dart' as imglib;
+import 'package:image/image.dart' as img;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:image_picker/image_picker.dart';
+
+// ImageNet mean values for zero-centering
+const imageNetMean = [123.68, 116.779, 103.939];
 
 class HomeScreen extends StatefulWidget {
   static const String id = "home_screen";
@@ -37,18 +39,38 @@ class _HomeScreenState extends State<HomeScreen> {
         );
   }
 
-  // Function to resized image
-  String resizedImage(File file) {
-    var rawBytes = file.readAsBytesSync();
-    var image = imglib.decodeImage(rawBytes);
+  // Function to preprocess the image
+  Uint8List preprocessImage(Uint8List imageData) {
+    // Decode the image
+    img.Image image = img.decodeImage(imageData)!;
+
     // Resize image to 224x224 pixels
-    var resizedImage = imglib.copyResize(image!, width: 224, height: 224);
-    // Save resized image to a temporary file
-    var tempDir = Directory.systemTemp;
-    var tempFile = File('${tempDir.path}/resized_image.jpg');
-    tempFile.writeAsBytesSync(imglib.encodeJpg(resizedImage));
-    // Return the path to the saved resized image
-    return tempFile.path;
+    img.Image resizedImage = img.copyResize(image, width: 224, height: 224);
+
+    // Convert the image from RGB to BGR and zero-center with ImageNet means
+    List<double> pixels = [];
+    for (int y = 0; y < resizedImage.height; y++) {
+      for (int x = 0; x < resizedImage.width; x++) {
+        int pixel = resizedImage.getPixel(x, y);
+        double r = img.getRed(pixel).toDouble();
+        double g = img.getGreen(pixel).toDouble();
+        double b = img.getBlue(pixel).toDouble();
+
+        // Zero-center with ImageNet means
+        b -= imageNetMean[2];
+        g -= imageNetMean[1];
+        r -= imageNetMean[0];
+
+        // Add the BGR values to the list
+        pixels.add(b);
+        pixels.add(g);
+        pixels.add(r);
+      }
+    }
+
+    // Convert the list to Float32List
+    Float32List float32Pixels = Float32List.fromList(pixels);
+    return float32Pixels.buffer.asUint8List();
   }
 
   // Function to upload picture from the local file
@@ -61,18 +83,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
     var imageMap = File(image.path);
 
-    // Call the resizeImage funtion to resize the image input
-    var resImage = resizedImage(imageMap);
+    Uint8List imageData = imageMap.readAsBytesSync();
+    Uint8List preprocessedData = preprocessImage(imageData);
 
     setState(() {
       filePath = imageMap;
     });
 
     // Run prediction using the Model
-    var recognitions = await Tflite.runModelOnImage(
-      path: resImage,
+    var recognitions = await Tflite.runModelOnBinary(
+      binary: preprocessedData,
       numResults: 8,
-      threshold: 0.2,
+      threshold: 0.3,
       asynch: true,
     );
 
@@ -113,18 +135,19 @@ class _HomeScreenState extends State<HomeScreen> {
     if (image == null) return;
 
     var imageMap = File(image.path);
-    // Call the resizeImage funtion to resize the image input
-    var resImage = resizedImage(imageMap);
+
+    Uint8List imageData = imageMap.readAsBytesSync();
+    Uint8List preprocessedData = preprocessImage(imageData);
 
     setState(() {
       filePath = imageMap;
     });
 
     // Run prediction using the Model
-    var recognitions = await Tflite.runModelOnImage(
-      path: resImage,
-      numResults: 8,
-      threshold: 0.2,
+    var recognitions = await Tflite.runModelOnBinary(
+      binary: preprocessedData,
+      numResults: 6,
+      threshold: 0.3,
       asynch: true,
     );
 
