@@ -1,8 +1,8 @@
 import 'package:fishclassificationapp/utils/appcolor.dart';
 import 'package:flutter/material.dart';
 
-class BulletTuna extends StatelessWidget {
-  const BulletTuna({super.key});
+class EasternLittleTuna extends StatelessWidget {
+  const EasternLittleTuna({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class BulletTuna extends StatelessWidget {
         ),
         Center(
           child: Text(
-            "Bullet Tuna",
+            "Eastern Little Tuna",
             style: TextStyle(
               fontFamily: "ProximaNova",
               fontSize: height * 0.03,
@@ -38,7 +38,7 @@ class BulletTuna extends StatelessWidget {
           child: const ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(13)),
             child: Image(
-              image: AssetImage('assets/imgs/bullettuna.jpg'),
+              image: AssetImage('assets/imgs/easternlittletuna.jpg'),
               fit: BoxFit.fill,
             ),
           ),
@@ -73,12 +73,12 @@ class BulletTuna extends StatelessWidget {
                     color: white,
                   ),
                   children: const [
-                    TextSpan(text: "Scientific Name: Auxis Rochei\n"),
-                    TextSpan(text: "Local Name: Turingan, Tulingan\n"),
-                    TextSpan(text: "Also known as: Pacific Bullet Mackerel\n"),
+                    TextSpan(text: "Scientific Name: Euthynnus affinis\n"),
+                    TextSpan(text: "Local Name: Turingan, Kawa-kawa\n"),
+                    TextSpan(text: "Also known as: \n"),
                     TextSpan(
                         text:
-                            "Species Data: Dorsal spines (total): 9 - 12; Dorsal soft rays (total): 10 - 13; Anal spines: 0; Anal soft rays: 12 - 14. Back bluish, turning to deep purple or almost black on head. Scaleless area with pattern of 15 or more fairly broad, nearly vertical dark bars. Belly white. Pectoral and pelvic fins purple, their inner sides black. Body robust, elongate and rounded. Teeth small and conical, in a single series. Pectoral fins short, not reaching vertical line from anterior margin of scaleless area above corselet. A large, single-pointed flap (interpelvic process) between pelvic fins. Body naked except for corselet, which is well developed in its posterior part 9 more than 6 scales wide under second dorsal-fin origin). A strong central keel on each side of caudal-fin base between 2 smaller keels."),
+                            "Dorsal spines (total): 10 - 15; Dorsal soft rays (total): 11 - 15; Anal spines: 0; Anal soft rays: 14 - 15; Vertebrae: 39. Swim bladder absent. No trace of vertebral protuberances. Anterior spines of first dorsal fin much higher than those mid-way. Interpelvic process small and bifid. Body naked except for corselet and lateral line. Posterior portion of the back with a pattern of broken oblique stripes."),
                   ],
                 ),
               ),
@@ -115,8 +115,8 @@ class BulletTuna extends StatelessWidget {
                     color: secondarybgColor,
                   ),
                   children: const [
-                    TextSpan(text: "Maximum Size: 55 cm\n"),
-                    TextSpan(text: "Maximum Weight: 1.84 kg"),
+                    TextSpan(text: "Maximum Size:65 cm\n"),
+                    TextSpan(text: "Maximum Weight: 14 kg"),
                   ],
                 ),
               ),
@@ -155,7 +155,7 @@ class BulletTuna extends StatelessWidget {
                   children: const [
                     TextSpan(
                         text:
-                            "Inhabits coastal and oceanic waters, forming large schools."),
+                            "Indo-West Pacific: in warm waters including oceanic islands and archipelagos. A few stray specimens have been collected in the Eastern Central Pacific. Highly migratory."),
                   ],
                 ),
               ),

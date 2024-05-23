@@ -1,8 +1,8 @@
 import 'package:fishclassificationapp/utils/appcolor.dart';
 import 'package:flutter/material.dart';
 
-class ShrimpScad extends StatelessWidget {
-  const ShrimpScad({super.key});
+class YellowStripeScad extends StatelessWidget {
+  const YellowStripeScad({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ShrimpScad extends StatelessWidget {
         ),
         Center(
           child: Text(
-            "Shrimp Scad",
+            "Yellow Stripe Scad",
             style: TextStyle(
               fontFamily: "ProximaNova",
               fontSize: height * 0.03,
@@ -38,7 +38,7 @@ class ShrimpScad extends StatelessWidget {
           child: const ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(13)),
             child: Image(
-              image: AssetImage('assets/imgs/shrimpscad.png'),
+              image: AssetImage('assets/imgs/yellowstripescad.jpg'),
               fit: BoxFit.fill,
             ),
           ),
@@ -73,12 +73,12 @@ class ShrimpScad extends StatelessWidget {
                     color: white,
                   ),
                   children: const [
-                    TextSpan(text: "Scientific Name: Alepes djedaba\n"),
-                    TextSpan(text: "Local Name: Salay-salay\n"),
+                    TextSpan(text: "Scientific Name: Selaroides leptolepis\n"),
+                    TextSpan(text: "Local Name: Salay Ginto, Ginto-ginto\n"),
                     TextSpan(text: "Also known as: \n"),
                     TextSpan(
                         text:
-                            "Dorsal spines (total): 9; Dorsal soft rays (total): 22 - 25; Anal spines: 3; Anal soft rays: 18 - 20. Description: Greyish green above, silvery to white below; distinct black blotch on upper margin of opercle, bordered above by a smaller white spot; caudal fin yellowish, upper lobe dusky to black distally. Body with dorsal and ventral profiles almost evenly convex. Adipose eyelid well-developed on posterior half of the eye. LL with 0-3 scales on straight part and 31-36 scales on curved part and 39-51 scutes."),
+                            "Dorsal spines (total): 9; Dorsal soft rays (total): 24-26; Anal spines: 3; Anal soft rays: 21-23 Dorsal metallic blue, ventral silvery white; stripe yellow, broad from eye upper margin to caudal peduncle; opercle edge with spot black, large. Body elongate, oblong, compressed; profile, dorsal less convex than ventral. Eyes very large, shorter than snout length; adipose eyelid well- developed, covering eye posterior part. Upper jaw strongly protractile. Breast scaled. LL curved part shorter than straight part 0.6-0.8 times LL; scales are on straight part; LL scutes 24-29, small. Cleithrum smooth without papillae. Pectoral fins falcate; anal fins first two spines detached."),
                   ],
                 ),
               ),
@@ -115,8 +115,8 @@ class ShrimpScad extends StatelessWidget {
                     color: secondarybgColor,
                   ),
                   children: const [
-                    TextSpan(text: "Maximum Size: 40 cm\n"),
-                    TextSpan(text: "Maximum Weight: 0.603 kg"),
+                    TextSpan(text: "Maximum Size: 22 cm\n"),
+                    TextSpan(text: "Maximum Weight: 0.625 kg"),
                   ],
                 ),
               ),
@@ -153,7 +153,9 @@ class ShrimpScad extends StatelessWidget {
                     color: white,
                   ),
                   children: const [
-                    TextSpan(text: "Marine; reef-associated; amphidromous."),
+                    TextSpan(
+                        text:
+                            "Indo-West Pacific: Persian Gulf to the Philippines, north to Japan, south to the Arafura Sea and Australia"),
                   ],
                 ),
               ),
@@ -190,7 +192,7 @@ class ShrimpScad extends StatelessWidget {
                     color: white,
                   ),
                   children: const [
-                    TextSpan(text: "Max Depth: "),
+                    TextSpan(text: "Max Depth: 50 m"),
                   ],
                 ),
               ),

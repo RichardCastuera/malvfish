@@ -1,8 +1,8 @@
-Bullet tuna fish
-Frigate tuna fish
-Redtail scad fish
-Shortfin scad fish
-Shrimp scad fish
-Skipjack tuna fish
-Yellowfin tuna fish
-Yellowtail scad fish
+Eastern Little Tuna Fish
+Frigate Tuna Fish
+Redtail Scad Fish
+Shortfin Scad Fish
+Skipjack Tuna Fish
+Yellowfin Tuna Fish
+Yellowstripe Scad Fish
+Yellowtail Scad Fish

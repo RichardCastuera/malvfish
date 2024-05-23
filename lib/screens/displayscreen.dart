@@ -93,7 +93,7 @@ class _DisplayImageScreenState extends State<DisplayImageScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: height * 0.05),
+              SizedBox(height: height * 0.02),
               (widget.label!.toLowerCase() == "no fish detected")
                   ? AppButton(
                       title: "Retry",

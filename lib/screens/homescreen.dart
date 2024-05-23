@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
     var recognitions = await Tflite.runModelOnBinary(
       binary: preprocessedData,
       numResults: 8,
-      threshold: 0.3,
+      threshold: 0.2,
       asynch: true,
     );
 
@@ -146,8 +146,8 @@ class _HomeScreenState extends State<HomeScreen> {
     // Run prediction using the Model
     var recognitions = await Tflite.runModelOnBinary(
       binary: preprocessedData,
-      numResults: 6,
-      threshold: 0.3,
+      numResults: 8,
+      threshold: 0.2,
       asynch: true,
     );
 

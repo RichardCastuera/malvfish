@@ -1,8 +1,8 @@
-import 'package:fishclassificationapp/description/bullettuna.dart';
+import 'package:fishclassificationapp/description/easternlittletuna.dart';
 import 'package:fishclassificationapp/description/frigatetuna.dart';
 import 'package:fishclassificationapp/description/redtailscad.dart';
 import 'package:fishclassificationapp/description/shortfinscad.dart';
-import 'package:fishclassificationapp/description/shrimpscad.dart';
+import 'package:fishclassificationapp/description/yellowstripescad.dart';
 import 'package:fishclassificationapp/description/skipjacktuna.dart';
 import 'package:fishclassificationapp/description/yellowfintuna.dart';
 import 'package:fishclassificationapp/description/yellowtailscad.dart';
@@ -45,16 +45,17 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
           bottom: height * 0.02,
         ),
         child: SingleChildScrollView(
-          child: (widget.label!.toLowerCase() == 'bullet tuna fish')
-              ? const BulletTuna()
+          child: (widget.label!.toLowerCase() == 'eastern little tuna fish')
+              ? const EasternLittleTuna()
               : (widget.label!.toLowerCase() == 'frigate tuna fish')
                   ? const FrigateTuna()
                   : (widget.label!.toLowerCase() == 'redtail scad fish')
                       ? const RedTailScad()
                       : (widget.label!.toLowerCase() == 'shortfin scad fish')
                           ? const ShortFinScad()
-                          : (widget.label!.toLowerCase() == 'shrimp scad fish')
-                              ? const ShrimpScad()
+                          : (widget.label!.toLowerCase() ==
+                                  'yellowstripe scad Fish')
+                              ? const YellowStripeScad()
                               : (widget.label!.toLowerCase() ==
                                       'skipjack tuna fish')
                                   ? const SkipJackTuna()
