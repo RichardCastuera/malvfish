@@ -1,5 +1,7 @@
 Eastern Little Tuna Fish
-Frigate Tuna Fish
+Fish Detected
+Frigate Tuna
+No Fish Detected
 Redtail Scad Fish
 Shortfin Scad Fish
 Skipjack Tuna Fish

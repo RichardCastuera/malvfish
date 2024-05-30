@@ -91,12 +91,21 @@ class _HomeScreenState extends State<HomeScreen> {
     });
 
     // Run prediction using the Model
-    var recognitions = await Tflite.runModelOnBinary(
-      binary: preprocessedData,
-      numResults: 8,
-      threshold: 0.2,
-      asynch: true,
-    );
+    // var recognitions = await Tflite.runModelOnBinary(
+    //   binary: preprocessedData,
+    //   numResults: 10,
+    //   threshold: 0.2,
+    //   asynch: true,
+    // );
+
+    var recognitions = await Tflite.runModelOnImage(
+        path: imageMap.path, // required
+        imageMean: 0.0, // defaults to 117.0
+        imageStd: 255.0, // defaults to 1.0
+        numResults: 10, // defaults to 5
+        threshold: 0.2, // defaults to 0.1
+        asynch: true // defaults to true
+        );
 
     if (recognitions != null && recognitions.isNotEmpty) {
       setState(() {
@@ -144,12 +153,21 @@ class _HomeScreenState extends State<HomeScreen> {
     });
 
     // Run prediction using the Model
-    var recognitions = await Tflite.runModelOnBinary(
-      binary: preprocessedData,
-      numResults: 8,
-      threshold: 0.2,
-      asynch: true,
-    );
+    // var recognitions = await Tflite.runModelOnBinary(
+    //   binary: preprocessedData,
+    //   numResults: 10,
+    //   threshold: 0.2,
+    //   asynch: true,
+    // );
+
+    var recognitions = await Tflite.runModelOnImage(
+        path: imageMap.path, // required
+        imageMean: 0.0, // defaults to 117.0
+        imageStd: 255.0, // defaults to 1.0
+        numResults: 10, // defaults to 5
+        threshold: 0.2, // defaults to 0.1
+        asynch: true // defaults to true
+        );
 
     if (recognitions != null && recognitions.isNotEmpty) {
       setState(() {

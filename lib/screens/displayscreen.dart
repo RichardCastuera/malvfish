@@ -70,14 +70,17 @@ class _DisplayImageScreenState extends State<DisplayImageScreen> {
                   color: white,
                 ),
               ),
-              Text(
-                "Confidence Rate: ${widget.confidence!.toStringAsFixed(2)}%",
-                style: TextStyle(
-                  fontFamily: "ProximaNova",
-                  fontSize: height * 0.018,
-                  color: white,
-                ),
-              ),
+              (widget.label!.toLowerCase() == "no fish detected" ||
+                      widget.label!.toLowerCase() == "fish detected")
+                  ? Container()
+                  : Text(
+                      "Confidence Rate: ${widget.confidence!.toStringAsFixed(2)}%",
+                      style: TextStyle(
+                        fontFamily: "ProximaNova",
+                        fontSize: height * 0.018,
+                        color: white,
+                      ),
+                    ),
               SizedBox(height: height * 0.015),
               Container(
                 height: height * 0.35,
@@ -94,7 +97,8 @@ class _DisplayImageScreenState extends State<DisplayImageScreen> {
                 ),
               ),
               SizedBox(height: height * 0.02),
-              (widget.label!.toLowerCase() == "no fish detected")
+              (widget.label!.toLowerCase() == "no fish detected" ||
+                      widget.label!.toLowerCase() == "fish detected")
                   ? AppButton(
                       title: "Retry",
                       onPress: () => Navigator.pushNamed(
