@@ -54,7 +54,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                       : (widget.label!.toLowerCase() == 'shortfin scad fish')
                           ? const ShortFinScad()
                           : (widget.label!.toLowerCase() ==
-                                  'yellowstripe scad Fish')
+                                  'yellowstripe scad fish')
                               ? const YellowStripeScad()
                               : (widget.label!.toLowerCase() ==
                                       'skipjack tuna fish')
